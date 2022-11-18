@@ -13,15 +13,12 @@ repositories {
 }
 
 dependencies {
-	implementation group: 'com.graphql-java', name: 'graphql-java-servlet', version: '6.1.0'
 	implementation 'org.springframework.boot:spring-boot-starter-graphql'
 	compileOnly group: 'org.projectlombok', name: 'lombok-maven-plugin', version: '1.18.20.0'
 	implementation group: 'redis.clients', name: 'jedis', version: '3.8.0'
 	implementation group: 'org.springframework.data', name: 'spring-data-redis', version: '2.7.5'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework:spring-webflux'
-	testImplementation 'org.springframework.graphql:spring-graphql-test'
 	implementation group: 'com.graphql-java-kickstart', name: 'graphiql-spring-boot-starter', version: '11.1.0'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: '2.7.5'
 	implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter:13.0.0'
