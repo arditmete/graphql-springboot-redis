@@ -1,0 +1,8 @@
+graphql:
+  servlet:
+    mapping: /graphql
+spring:
+  graphql:
+    graphiql:
+      enabled: true
+      path: "/graphiql"
