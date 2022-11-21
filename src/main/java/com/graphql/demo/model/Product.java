@@ -11,6 +11,15 @@ public class Product {
     private String name;
     private String quantity;
     private String type;
+    private Category category;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     public String getId() {
         return id;

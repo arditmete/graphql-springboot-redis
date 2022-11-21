@@ -3,13 +3,22 @@ type Product {
     name: String!
     quantity: String!
     type: String!
+    category: Category!
+}
+
+type Category {
+    id: ID!
+    name: String!
 }
 
 type Mutation {
-    newProduct(name: String!, quantity: String!, type: String!): Product!
+    newProduct(name: String!, quantity: String!, type: String!, category: Category!): Product!
+    newCategory(name: String!): Category!
 }
 
 type Query {
+    getAllCategories: [Category]!
     getAllProducts: [Product]!
     getProduct(id: ID): Product!
+    getCategory(id: ID): Category!
 }

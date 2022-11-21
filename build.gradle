@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '2.7.5'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id("com.apollographql.apollo").version("2.5.10")
 }
 
 group = 'com.graphql'
@@ -22,6 +23,7 @@ dependencies {
 	implementation group: 'com.graphql-java-kickstart', name: 'graphiql-spring-boot-starter', version: '11.1.0'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: '2.7.5'
 	implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter:13.0.0'
+	implementation 'com.apollographql.apollo:apollo-runtime:2.5.10'
 }
 
 tasks.named('test') {

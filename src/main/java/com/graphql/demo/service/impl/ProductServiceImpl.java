@@ -1,5 +1,6 @@
 package com.graphql.demo.service.impl;
 
+import com.graphql.demo.model.Category;
 import com.graphql.demo.model.Product;
 import com.graphql.demo.repository.ProductRepository;
 import com.graphql.demo.service.ProductService;
@@ -20,11 +21,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Transactional
     @Override
-    public Product addProduct(String name, String quantity, String type) {
+    public Product addProduct(String name, String quantity, String type, Category category) {
         Product product = new Product();
         product.setName(name);
         product.setQuantity(quantity);
         product.setType(type);
+        product.setCategory(category);
        return productRepository.save(product);
     }
 
