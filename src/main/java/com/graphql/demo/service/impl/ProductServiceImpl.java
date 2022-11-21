@@ -1,7 +1,9 @@
 package com.graphql.demo.service.impl;
 
+import com.graphql.demo.exception.CategoryNotFoundException;
 import com.graphql.demo.model.Category;
 import com.graphql.demo.model.Product;
+import com.graphql.demo.repository.CategoryRepository;
 import com.graphql.demo.repository.ProductRepository;
 import com.graphql.demo.service.ProductService;
 import org.springframework.stereotype.Service;
@@ -14,14 +16,17 @@ import java.util.Optional;
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
+    private final CategoryRepository categoryRepository;
 
-    public ProductServiceImpl(ProductRepository productRepository){
+    public ProductServiceImpl(ProductRepository productRepository, CategoryRepository categoryRepository){
         this.productRepository = productRepository;
+        this.categoryRepository = categoryRepository;
     }
 
     @Transactional
     @Override
-    public Product addProduct(String name, String quantity, String type, Category category) {
+    public Product addProduct(String name, String quantity, String type, String categoryId) {
+        Category category = categoryRepository.findById(categoryId).orElseThrow(()-> new CategoryNotFoundException("Category not found"));
         Product product = new Product();
         product.setName(name);
         product.setQuantity(quantity);

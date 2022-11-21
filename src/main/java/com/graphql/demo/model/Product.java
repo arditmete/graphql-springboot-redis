@@ -1,10 +1,7 @@
 package com.graphql.demo.model;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisHash;
 
-@RequiredArgsConstructor
 @RedisHash(value = "Product", timeToLive = 600L)
 public class Product {
     private String id;
@@ -13,8 +10,15 @@ public class Product {
     private String type;
     private Category category;
 
-    public Category getCategory() {
-        return category;
+    public Product() {
+    }
+
+    public Product(String id, String name, String quantity, String type, Category category) {
+        this.id = id;
+        this.name = name;
+        this.quantity = quantity;
+        this.type = type;
+        this.category = category;
     }
 
     public void setCategory(Category category) {

@@ -18,8 +18,8 @@ public class Mutation implements GraphQLMutationResolver {
         this.productService = productService;
     }
 
-    public Product newProduct(String name, String quantity, String type, Category category){
-       return productService.addProduct(name, quantity, type, category);
+    public Product newProduct(String name, String quantity, String type, String categoryId){
+       return productService.addProduct(name, quantity, type, categoryId);
     }
 
     public Category newCategory(String name){

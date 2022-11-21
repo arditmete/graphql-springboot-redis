@@ -3,11 +3,13 @@ package com.graphql.demo.model;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisHash;
 
-@RequiredArgsConstructor
 @RedisHash(value = "Category", timeToLive = 600L)
 public class Category {
     private String id;
     private String name;
+
+    public Category() {
+    }
 
     public String getId() {
         return id;

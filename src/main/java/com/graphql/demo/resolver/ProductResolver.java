@@ -1,19 +1,22 @@
 package com.graphql.demo.resolver;
 
 import com.graphql.demo.exception.ProductNotFoundException;
+import com.graphql.demo.model.Category;
 import com.graphql.demo.model.Product;
-import com.graphql.demo.service.ProductService;
+import com.graphql.demo.service.CategoryService;
 import graphql.kickstart.tools.GraphQLResolver;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ProductResolver implements GraphQLResolver<Product> {
 
-    private ProductService productService;
+    private final CategoryService categoryService;
 
-    public ProductResolver(ProductService productService){
-        this.productService = productService;
+    public ProductResolver(CategoryService categoryService){
+        this.categoryService = categoryService;
     }
 
-    public Product getProduct(String id){
-        return productService.findById(id).orElseThrow(()->new ProductNotFoundException("Product with id " + id + " not found"));
+    public Category getCategory(String id){
+        return categoryService.findById(id).orElseThrow(()->new ProductNotFoundException("Product with id " + id + " not found"));
     }
 }
